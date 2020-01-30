@@ -3,34 +3,28 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(DisplayHighscores))]
-public class HighScores : MonoBehaviour
+public class HighScores : Singleton<HighScores>
 {
     const string privateCode = "RilY7vycREe8-3ued_e7yAHsCu1HMfzUaW0XZlhEqr0w";
     const string publicCode = "5e2681b1fe224b0478282e95";
     const string webURL = "http://dreamlo.com/lb/";
 
     public Highscore[] highscoresList;
-    public static HighScores instance;
     DisplayHighscores highscoreDisplay;
     // Start is called before the first frame update
 
-    void Awake()
+    protected override void Awake()
     {
-        if (!instance) {
-            instance = this;
-        } else {
-            Destroy(this);
-        }
-
+        this.IsPersistentBetweenScenes = false;
         highscoreDisplay = GetComponent<DisplayHighscores>();
+        base.Awake();
     }
 
     public static void AddNewHighScore(string username, int score) {
-        instance.StartCoroutine(instance.UploadNewHighScore(username, score));
+        Instance.StartCoroutine(Instance.UploadNewHighScore(username, score));
     }
 
     public void DownloadHighscores() {
-        Debug.Log("hmmm");
         StartCoroutine("DownloadHighscoresFromDatabase");
     }
 
@@ -65,7 +59,6 @@ public class HighScores : MonoBehaviour
             string username = usernameWithPlus.Replace('+',' ');
             int score = int.Parse(entryInfo[1]);
             highscoresList[i] = new Highscore(username, score);
-            print(highscoresList[i].username+":"+highscoresList[i].score);
         }
     }
 }

@@ -27,8 +27,6 @@ public class BlinkText : MonoBehaviour {
     private IEnumerator blinkAnimation() {
         Color initialColor = this.text.color;
         Color currentColor = this.text.color;
-
-        Debug.Log(initialColor);
         float counter = 0;
 
         while(playAnimation) {
