@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
                 Touch firstTouch = Input.GetTouch(0);
     
                 // if it began this frame
-                if(firstTouch.phase == TouchPhase.Began)
+                if(firstTouch.phase == TouchPhase.Began || firstTouch.phase == TouchPhase.Stationary || firstTouch.phase == TouchPhase.Moved)
                 {
                     if(firstTouch.position.x > screenCenterX) {
                         player.transform.position += Vector3.right * Time.deltaTime * mobileSpeed;
