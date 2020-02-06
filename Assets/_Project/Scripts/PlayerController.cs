@@ -1,21 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 
     public float pcSpeed;
     public float mobileSpeed;
-    private float screenCenterX;
-
+    public Camera mainCamera;
+    
     public GameObject player;
     public Animator playerAnimator;
-    SpriteRenderer playerSprite;
+    private Vector2 screenBounds;
+    private float objectWidth;
+    private float screenCenterX;
+    private SpriteRenderer playerSprite;
 
     void Start() {
+        mainCamera = Camera.main;
         playerSprite = player.GetComponent<SpriteRenderer>();
         screenCenterX = Screen.width * 0.5f;
+        screenBounds = this.mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, this.mainCamera.transform.position.z));
+        objectWidth = playerSprite.bounds.extents.x; //extents = size of width / 2
     }
 
     // Update is called once per frame
@@ -34,13 +38,9 @@ public class PlayerController : MonoBehaviour
         #endif
 
         #if (UNITY_IOS) || (UNITY_ANDROID)
-            // if there are any touches currently
             if(Input.touchCount > 0)
             {
-                // get the first one
                 Touch firstTouch = Input.GetTouch(0);
-    
-                // if it began this frame
                 if(firstTouch.phase == TouchPhase.Began || firstTouch.phase == TouchPhase.Stationary || firstTouch.phase == TouchPhase.Moved)
                 {
                     if(firstTouch.position.x > screenCenterX) {
@@ -58,5 +58,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         #endif
+    }
+
+    void LateUpdate()
+    {
+        Vector3 viewPos = player.transform.position;
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
+        player.transform.position = viewPos;
     }
 }
