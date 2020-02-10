@@ -51,7 +51,7 @@ public class PlayerController : Singleton<PlayerController>
         #endif
 
         #if (UNITY_IOS) || (UNITY_ANDROID)
-            if(Input.touchCount > 0)
+            if(Input.touchCount > 0 && !GameController.Instance.gameOver)
             {
                 Touch firstTouch = Input.GetTouch(0);
                 if(firstTouch.phase == TouchPhase.Began || firstTouch.phase == TouchPhase.Stationary || firstTouch.phase == TouchPhase.Moved)

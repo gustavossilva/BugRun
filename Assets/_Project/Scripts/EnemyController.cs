@@ -22,7 +22,7 @@ public class EnemyController :Singleton<EnemyController>
 
     private void Update() {
         currentTime += Time.deltaTime;
-        if(currentTime >= timeToSpawnNextEnemy) {
+        if(currentTime >= timeToSpawnNextEnemy && !GameController.Instance.gameOver) {
             GameObject newEnemy = enemyPool.GetPooledObject();
             RectTransform enemyPosition = newEnemy.GetComponent<RectTransform>();
             enemyPosition.anchoredPosition =  new Vector2(spawnPosition.position.x, spawnPosition.position.y);

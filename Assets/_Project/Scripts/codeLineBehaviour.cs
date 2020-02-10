@@ -17,6 +17,11 @@ public class codeLineBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        codeTransform.anchoredPosition  = new Vector2(codeTransform.anchoredPosition.x, codeTransform.anchoredPosition.y - controller.currentEnemyVelocity);
+        if(!GameController.Instance.gameOver) {
+            codeTransform.anchoredPosition  = new Vector2(codeTransform.anchoredPosition.x, codeTransform.anchoredPosition.y - controller.currentEnemyVelocity);
+        }
+        if(GameController.Instance.gameOver && gameObject.activeSelf) {
+            gameObject.SetActive(false);
+        }
     }
 }

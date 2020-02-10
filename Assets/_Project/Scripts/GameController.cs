@@ -15,6 +15,8 @@ public class GameController : Singleton<GameController>
 
     public float currentTime = 0;
 
+    public bool gameOver = false;
+
     public GameObject pauseButton;
     public GameObject pausePanel;
     public GameObject pausePanelInitial;
