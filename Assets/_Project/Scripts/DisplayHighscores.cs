@@ -6,7 +6,8 @@ using TMPro;
 public class DisplayHighscores : MonoBehaviour
 {
     public TextMeshProUGUI bestScore;
-    public TextMeshProUGUI beTheFirst;
+    public TextMeshProUGUI playerNamePosition;
+    public TextMeshProUGUI playerCurrentScore;
     public TextMeshProUGUI[] highScoreNames;
     public TextMeshProUGUI[] highScores;
     public CanvasGroup highScoreCanvasGroup;
@@ -27,21 +28,27 @@ public class DisplayHighscores : MonoBehaviour
     }
 
     public void OnHighScoresDownloaded(Highscore[] highscoreList) {
-        if (highscoreList.Length == 0) {
-            this.beTheFirst.gameObject.SetActive(true);
-            this.highScoreCanvasGroup.alpha = 0;
-            return;
-        }
-        if (beTheFirst.gameObject.activeSelf) {
-            beTheFirst.gameObject.SetActive(false);
+        int playerPosition = 0;
+        string userName = PlayerPrefs.GetString("playerName");
+        int playerScore =  PlayerPrefs.GetInt("bestScore");
+        for (int i = 0; i < highscoreList.Length; i++) {
+            if(highscoreList[i].username == userName) {
+                playerPosition = i + 1;
+            }
         }
         this.highScoreCanvasGroup.alpha = 1;
         for (int i = 0; i < this.highScoreNames.Length; i ++) {
+            string character =  i < 10 ? "0":"";
             if (highscoreList.Length > i) { 
-                this.highScoreNames[i].text = highscoreList[i].username;
+                this.highScoreNames[i].text = character+(i + 1).ToString() + ". "+highscoreList[i].username;
                 this.highScores[i].text = highscoreList[i].score.ToString();
             }
-        }        
+        }
+        if(playerNamePosition && playerCurrentScore) {
+            string character = playerPosition < 10 ? "0":"";
+            playerNamePosition.text = character+playerPosition.ToString() + ". "+userName;
+            playerCurrentScore.text = playerScore.ToString();
+        }
     }
 
     IEnumerator RefreshHighscores() {

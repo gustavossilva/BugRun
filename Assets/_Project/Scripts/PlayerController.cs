@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
-public class PlayerController : MonoBehaviour
+using TMPro;
+public class PlayerController : Singleton<PlayerController>
 {
 
     public float pcSpeed;
@@ -14,6 +14,19 @@ public class PlayerController : MonoBehaviour
     private float screenCenterX;
     private SpriteRenderer playerSprite;
 
+    public double playerScore = 0;
+
+    public TextMeshProUGUI score;
+    protected override void Awake() {
+        this.IsPersistentBetweenScenes = false;
+        base.Awake();
+        GameController.Instance.updateScore += setScore;
+    }
+
+    public void setScore(int value) {
+        this.playerScore += value;
+        score.SetText(playerScore.ToString());
+    }
     void Start() {
         mainCamera = Camera.main;
         playerSprite = player.GetComponent<SpriteRenderer>();
@@ -62,8 +75,10 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 viewPos = player.transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
-        player.transform.position = viewPos;
+        if(gameObject) {
+            Vector3 viewPos = player.transform.position;
+            viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
+            player.transform.position = viewPos;
+        }
     }
 }

@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-[RequireComponent(typeof(DisplayHighscores))]
 public class HighScores : Singleton<HighScores>
 {
     const string privateCode = "RilY7vycREe8-3ued_e7yAHsCu1HMfzUaW0XZlhEqr0w";
@@ -20,15 +19,16 @@ public class HighScores : Singleton<HighScores>
         base.Awake();
     }
 
-    public static void AddNewHighScore(string username, int score) {
-        Instance.StartCoroutine(Instance.UploadNewHighScore(username, score));
+    public static void AddNewHighScore(string username, int score, bool downloadHighScore) {
+        Instance.StartCoroutine(Instance.UploadNewHighScore(username, score, downloadHighScore));
     }
 
     public void DownloadHighscores() {
         StartCoroutine("DownloadHighscoresFromDatabase");
     }
 
-    IEnumerator UploadNewHighScore(string username, int score) {
+    IEnumerator UploadNewHighScore(string username, int score, bool downloadHighScore) {
+        Debug.Log("Trying");
         UnityWebRequest uploadRequest = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(username) + "/" + score);
         yield return uploadRequest.SendWebRequest();
 
@@ -36,7 +36,9 @@ public class HighScores : Singleton<HighScores>
             Debug.LogError("Upload network error");
         } else {
             print ("Upload Sucessful");
-            DownloadHighscores();
+            if(downloadHighScore) {
+                DownloadHighscores();
+            }
         }
     }
     IEnumerator DownloadHighscoresFromDatabase() {
