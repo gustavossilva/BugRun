@@ -16,6 +16,7 @@ public class GameController : Singleton<GameController>
     public float currentTime = 0;
 
     public bool gameOver = false;
+    public bool gamePaused = false;
 
     public GameObject pauseButton;
     public GameObject pausePanel;
@@ -53,14 +54,16 @@ public class GameController : Singleton<GameController>
     }
 
     public void Pause() {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         pauseButton.SetActive(false);
         pausePanel.SetActive(true);
+        gamePaused = true;
     }
     public void Play() {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         pauseButton.SetActive(true);
         pausePanel.SetActive(false);
+        gamePaused = false;
     }
 
     public void ShowConfirmMessage(bool show) {
