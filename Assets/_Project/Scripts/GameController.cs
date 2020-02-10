@@ -10,6 +10,16 @@ public class GameController : Singleton<GameController>
 	public Action<int> updateScore;
     public int playerScore = 0;
 
+    public float timeToNextLevel = 10f;
+    public int nextLevelScore = 50;
+
+    public float currentTime = 0;
+
+    public GameObject pauseButton;
+    public GameObject pausePanel;
+    public GameObject pausePanelInitial;
+    public GameObject pausePanelConfirm;
+
     protected override void Awake() {
         this.IsPersistentBetweenScenes = false;
         base.Awake();
@@ -21,8 +31,38 @@ public class GameController : Singleton<GameController>
             updateScore(value);
         }
     }
+
+    private void Update() {
+        currentTime += Time.deltaTime;
+        if(currentTime >= timeToNextLevel) {
+            //Change game speed here;
+            //Change Spawn time here;
+            SetScore(nextLevelScore);
+            currentTime = 0;
+        }
+    }
     public void GameOver() {
         PlayerPrefs.SetInt("bestScore", playerScore);
-        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        this.GoTo("GameOver");
+    }
+
+    public void GoTo(string scene) {
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
+    public void Pause() {
+        Time.timeScale = 0;
+        pauseButton.SetActive(false);
+        pausePanel.SetActive(true);
+    }
+    public void Play() {
+        Time.timeScale = 1;
+        pauseButton.SetActive(true);
+        pausePanel.SetActive(false);
+    }
+
+    public void ShowConfirmMessage(bool show) {
+        pausePanelInitial.SetActive(!show);
+        pausePanelConfirm.SetActive(show);
     }
 }
