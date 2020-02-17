@@ -48,7 +48,7 @@ public class GameController : Singleton<GameController>
             gameSpeed = Mathf.Clamp(gameSpeed + 1f, 6f, 11f);
             spawnTime = Mathf.Clamp(spawnTime - 0.5f, 0.7f, 4f);
             extraPlayerVelocity = Mathf.Clamp(extraPlayerVelocity + 1f, 4f, 10f);
-            extraPlayerVelocityMobile = Mathf.Clamp(extraPlayerVelocityMobile + 0.8f, 4f, 7f);
+            extraPlayerVelocityMobile = Mathf.Clamp(extraPlayerVelocityMobile + 0.2f, 4f, 5f);
             SetScore(nextLevelScore);
             currentTime = 0;
         }
