@@ -38,6 +38,9 @@ public class PlayerController : Singleton<PlayerController>
     // Update is called once per frame
     void Update()
     {
+        if (GameController.Instance.gameOver) {
+            return;
+        }
         #if (UNITY_EDITOR) || (UNITY_WEBGL)
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
             playerAnimator.SetBool("isRunning", movement.x > 0 || movement.x < 0);

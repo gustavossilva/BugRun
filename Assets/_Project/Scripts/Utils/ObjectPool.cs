@@ -11,7 +11,7 @@ public class ObjectPool : MonoBehaviour {
 	* Object to be copied
 	*/
 	[SerializeField]
-	private GameObject _pooledObject = null;
+	private List<GameObject> _pooledObject = new List<GameObject>();
 
 	/**
 	* Initial size of the pool
@@ -45,7 +45,7 @@ public class ObjectPool : MonoBehaviour {
 			return _pool;
 		}
 	}
-	public GameObject pooledObject{
+	public List<GameObject> pooledObject{
 		get { return this._pooledObject; }
 	}
 	#endregion
@@ -67,8 +67,11 @@ public class ObjectPool : MonoBehaviour {
 	{
 		// Check for any disabled gameObject and returns it
 		for (int i = 0; i < _pool.Count; i++) {
-			if (!_pool [i].activeInHierarchy)
+			if (!_pool [i].activeInHierarchy) {
+				int objectIndex = Random.Range(0, _pooledObject.Count);
+				_pool [i] = (GameObject)Instantiate (_pooledObject[objectIndex], transform.position, Quaternion.identity, transform);
 				return _pool [i];
+			}
 		}
 
 		// Otherwise, if there is no object available and the pool can grow, create a new one and add to the pool
@@ -88,7 +91,8 @@ public class ObjectPool : MonoBehaviour {
 
 	private GameObject InstantiateGameObject()
 	{
-		GameObject instance = (GameObject)Instantiate (_pooledObject, transform.position, Quaternion.identity, transform);
+		int objectIndex = Random.Range(0, _pooledObject.Count);
+		GameObject instance = (GameObject)Instantiate (_pooledObject[objectIndex], transform.position, Quaternion.identity, transform);
 
 		instance.SetActive (false);
 		_pool.Add (instance);
