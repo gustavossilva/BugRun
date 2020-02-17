@@ -29,6 +29,10 @@ public class GameController : Singleton<GameController>
         this.IsPersistentBetweenScenes = false;
         base.Awake();
     }
+    void Start()
+    {
+        Destroy (GameObject.Find("SceneController"));
+    }
 
     public void SetScore(int value) {
         this.playerScore += value;
@@ -55,6 +59,7 @@ public class GameController : Singleton<GameController>
 
     public void GoTo(string scene) {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        Time.timeScale = 1f;
     }
 
     public void Pause() {

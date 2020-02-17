@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DisplayHighscores : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class DisplayHighscores : MonoBehaviour
     public TextMeshProUGUI[] highScoreNames;
     public TextMeshProUGUI[] highScores;
     public CanvasGroup highScoreCanvasGroup;
+    public AudioSource highScoreAudio;
+    public TextMeshProUGUI congratsText;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,10 @@ public class DisplayHighscores : MonoBehaviour
             string character = playerPosition < 10 ? "0":"";
             playerNamePosition.text = character+playerPosition.ToString() + ". "+userName;
             playerCurrentScore.text = playerScore.ToString();
+        }
+        if (playerPosition < 10 && SceneManager.GetActiveScene().name == "HighScore") {
+            highScoreAudio.Play();
+            congratsText.gameObject.SetActive(true);
         }
     }
 

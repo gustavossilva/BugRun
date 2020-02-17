@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
@@ -34,10 +31,9 @@ public class TutorialController : MonoBehaviour
                 playerStep3.SetActive(true);
                 step2.SetActive(false);
                 step3.SetActive(true);
-                playerStep3Animator.SetTrigger("die");
             break;
             case "final":
-                SceneManager.LoadScene("Game");
+                SceneController.Instance.ChangeScene("Game");
             break;
             default:
             break;
