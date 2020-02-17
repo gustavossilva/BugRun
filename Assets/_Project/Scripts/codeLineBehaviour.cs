@@ -18,7 +18,7 @@ public class codeLineBehaviour : MonoBehaviour
     void Update()
     {
         if(!GameController.Instance.gameOver && !GameController.Instance.gamePaused) {
-            codeTransform.anchoredPosition  = new Vector2(codeTransform.anchoredPosition.x, codeTransform.anchoredPosition.y - controller.currentEnemyVelocity);
+            codeTransform.anchoredPosition  = new Vector2(codeTransform.anchoredPosition.x, codeTransform.anchoredPosition.y - (GameController.Instance.gameSpeed + Time.deltaTime));
         }
         if(GameController.Instance.gameOver && gameObject.activeSelf) {
             gameObject.SetActive(false);
