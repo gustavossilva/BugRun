@@ -61,11 +61,11 @@ public class PlayerController : Singleton<PlayerController>
                 if(firstTouch.phase == TouchPhase.Began || firstTouch.phase == TouchPhase.Stationary || firstTouch.phase == TouchPhase.Moved)
                 {
                     if(firstTouch.position.x > screenCenterX) {
-                        player.transform.position += Vector3.right * Time.deltaTime * GameController.Instance.extraPlayerVelocity;
+                        player.transform.position += Vector3.right * Time.deltaTime * GameController.Instance.extraPlayerVelocityMobile;
                         playerAnimator.SetBool("isRunning", true);
                         playerSprite.flipX = false;
                     } else if(firstTouch.position.x < screenCenterX) {
-                        player.transform.position += Vector3.left * Time.deltaTime * GameController.Instance.extraPlayerVelocity;
+                        player.transform.position += Vector3.left * Time.deltaTime * GameController.Instance.extraPlayerVelocityMobile;
                         playerAnimator.SetBool("isRunning", true);
                         playerSprite.flipX = true;
                     }
