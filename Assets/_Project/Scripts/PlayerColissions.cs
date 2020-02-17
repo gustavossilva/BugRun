@@ -6,6 +6,11 @@ public class PlayerColissions : MonoBehaviour
 {
   private Animator playerAnimator;
 
+  public AudioSource actionSounds;
+
+  public AudioClip dieSound;
+  public AudioClip collectionSound;
+
   private void Awake() {
      playerAnimator = PlayerController.Instance.playerAnimator;
 
@@ -13,10 +18,13 @@ public class PlayerColissions : MonoBehaviour
   private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("bug")) {
           other.gameObject.transform.parent.gameObject.SetActive(false);
+          actionSounds.clip = collectionSound;
           GameController.Instance.SetScore(10);
         } else {
+          actionSounds.clip = dieSound;
           StartCoroutine("GameOverAfterAnimation");
         }
+        actionSounds.Play();
   }
 	private IEnumerator GameOverAfterAnimation() {
     GameController.Instance.gameOver = true;

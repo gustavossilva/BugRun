@@ -34,7 +34,6 @@ public class PlayerController : Singleton<PlayerController>
         screenCenterX = Screen.width * 0.5f;
         screenBounds = this.mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, this.mainCamera.transform.position.z));
         objectWidth = playerSprite.bounds.extents.x; //extents = size of width / 2
-        playerSpeed = GameController.Instance.extraPlayerVelocity;
     }
 
     // Update is called once per frame
@@ -52,7 +51,7 @@ public class PlayerController : Singleton<PlayerController>
             if (movement.x > 0) {
                 playerSprite.flipX = false;
             }
-            player.transform.position += movement * Time.deltaTime * playerSpeed;
+            player.transform.position += movement * Time.deltaTime * GameController.Instance.extraPlayerVelocity;
         #endif
 
         #if (UNITY_IOS) || (UNITY_ANDROID)
@@ -62,11 +61,11 @@ public class PlayerController : Singleton<PlayerController>
                 if(firstTouch.phase == TouchPhase.Began || firstTouch.phase == TouchPhase.Stationary || firstTouch.phase == TouchPhase.Moved)
                 {
                     if(firstTouch.position.x > screenCenterX) {
-                        player.transform.position += Vector3.right * Time.deltaTime * playerSpeed;
+                        player.transform.position += Vector3.right * Time.deltaTime * GameController.Instance.extraPlayerVelocity;
                         playerAnimator.SetBool("isRunning", true);
                         playerSprite.flipX = false;
                     } else if(firstTouch.position.x < screenCenterX) {
-                        player.transform.position += Vector3.left * Time.deltaTime * playerSpeed;
+                        player.transform.position += Vector3.left * Time.deltaTime * GameController.Instance.extraPlayerVelocity;
                         playerAnimator.SetBool("isRunning", true);
                         playerSprite.flipX = true;
                     }
