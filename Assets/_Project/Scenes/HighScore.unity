@@ -1778,6 +1778,7 @@ MonoBehaviour:
   highScoreCanvasGroup: {fileID: 1763771641}
   highScoreAudio: {fileID: 861386595}
   congratsText: {fileID: 2076752908}
+  removeHighScoreUpdate: 1
 --- !u!114 &861386593
 MonoBehaviour:
   m_ObjectHideFlags: 0

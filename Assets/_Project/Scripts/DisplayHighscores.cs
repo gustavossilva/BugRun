@@ -14,6 +14,8 @@ public class DisplayHighscores : MonoBehaviour
     public CanvasGroup highScoreCanvasGroup;
     public AudioSource highScoreAudio;
     public TextMeshProUGUI congratsText;
+
+    public bool removeHighScoreUpdate = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,9 @@ public class DisplayHighscores : MonoBehaviour
         int playerScore =  PlayerPrefs.GetInt("bestScore");
         for (int i = 0; i < highscoreList.Length; i++) {
             if(highscoreList[i].username == userName) {
+                if(highscoreList[i].score > playerScore) {
+                    playerScore = highscoreList[i].score;
+                }
                 playerPosition = i + 1;
             }
         }
@@ -47,7 +52,7 @@ public class DisplayHighscores : MonoBehaviour
                 this.highScores[i].text = highscoreList[i].score.ToString();
             }
         }
-        if(playerNamePosition && playerCurrentScore) {
+        if(SceneManager.GetActiveScene().name == "HighScore") {
             string character = playerPosition < 10 ? "0":"";
             playerNamePosition.text = character+playerPosition.ToString() + ". "+userName;
             playerCurrentScore.text = playerScore.ToString();
@@ -56,6 +61,8 @@ public class DisplayHighscores : MonoBehaviour
             highScoreAudio.Play();
             congratsText.gameObject.SetActive(true);
         }
+        if(removeHighScoreUpdate)
+            StopCoroutine("RefreshHighscores");
     }
 
     IEnumerator RefreshHighscores() {
