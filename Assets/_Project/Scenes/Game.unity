@@ -939,7 +939,7 @@ MonoBehaviour:
   - {fileID: 5802028147466030085, guid: 54182ae300704ea46be6626088c604ce, type: 3}
   - {fileID: 1031750610462782175, guid: ac2dcef338c32f24ea297e456e6eb1a2, type: 3}
   _initialPoolSize: 10
-  _maxPoolSize: 10
+  _maxPoolSize: 100
   _canGrow: 1
 --- !u!1 &745154743
 GameObject:
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.122641504, g: 0.113964036, b: 0.113964036, a: 0.81960785}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
