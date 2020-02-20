@@ -14,7 +14,7 @@ public class GameController : Singleton<GameController>
     public int nextLevelScore = 50;
 
     public float currentTime = 0;
-    public float gameSpeed = 6f;
+    public float gameSpeed = 250f;
     public float spawnTime = 4f;
     public float extraPlayerVelocity = 4f;
     public float extraPlayerVelocityMobile = 4f;
@@ -45,10 +45,10 @@ public class GameController : Singleton<GameController>
     private void Update() {
         currentTime += Time.deltaTime;
         if(currentTime >= timeToNextLevel) {
-            gameSpeed = Mathf.Clamp(gameSpeed + 1f, 6f, 11f);
-            spawnTime = Mathf.Clamp(spawnTime - 0.5f, 0.7f, 4f);
+            gameSpeed = Mathf.Clamp(gameSpeed + 15f, 6f, 500f);
+            spawnTime = Mathf.Clamp(spawnTime - 0.5f, 1f, 4f);
             extraPlayerVelocity = Mathf.Clamp(extraPlayerVelocity + 1f, 4f, 10f);
-            extraPlayerVelocityMobile = Mathf.Clamp(extraPlayerVelocityMobile + 0.2f, 4f, 5f);
+            extraPlayerVelocityMobile = Mathf.Clamp(extraPlayerVelocityMobile + 0.2f, 4f, 4.5f);
             SetScore(nextLevelScore);
             currentTime = 0;
         }

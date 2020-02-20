@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tem certeza?\r\nVoce perdera todo\r\nseu progresso"
+  m_text: "Tem certeza?\r\nVoc\xEA perder\xE1 todo\r\nseu progresso"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f127461e13a592c4e88a157b3493daaf, type: 2}
   m_sharedMaterial: {fileID: -3467376532555808541, guid: f127461e13a592c4e88a157b3493daaf,
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 4
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2798,7 +2798,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 4
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3068,7 +3068,7 @@ MonoBehaviour:
   timeToNextLevel: 5
   nextLevelScore: 50
   currentTime: 0
-  gameSpeed: 6
+  gameSpeed: 250
   spawnTime: 4
   extraPlayerVelocity: 4
   extraPlayerVelocityMobile: 4
