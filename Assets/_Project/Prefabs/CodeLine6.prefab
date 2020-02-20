@@ -65,7 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'const     = isBugged ? ERROR : CORRECT'
+  m_text: <color=#488bd0>const</color>    <color=#fff> = </color><color=#9cdcfe>isBugged</color><color=#fff>
+    ?</color><color=#9cdcfe> ERROR</color><color=#fff> :</color> <color=#9cdcfe>CORRECT</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f127461e13a592c4e88a157b3493daaf, type: 2}
   m_sharedMaterial: {fileID: -3467376532555808541, guid: f127461e13a592c4e88a157b3493daaf,
@@ -284,8 +285,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286890599
-  m_fontColor: {r: 0.40392157, g: 0.7607843, b: 0.5176471, a: 1}
+    rgba: 4294892700
+  m_fontColor: {r: 0.6117647, g: 0.8627451, b: 0.99607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

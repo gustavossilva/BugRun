@@ -180,7 +180,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 53844162}
   m_TextComponent: {fileID: 972021233}
   m_materialReferenceIndex: 1
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 518821791}
   m_TextComponent: {fileID: 806977417}
   m_materialReferenceIndex: 1
@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Entendi, let's go!
+  m_text: "Entendi, vamos l\xE1!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f127461e13a592c4e88a157b3493daaf, type: 2}
   m_sharedMaterial: {fileID: -3467376532555808541, guid: f127461e13a592c4e88a157b3493daaf,

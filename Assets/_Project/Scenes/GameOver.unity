@@ -211,7 +211,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -457,7 +457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84, y: 262.99997}
+  m_AnchoredPosition: {x: -48.39, y: 252}
   m_SizeDelta: {x: 499.58, y: 102.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &622199452
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE:'
+  m_text: "Pontua\xE7\xE3o:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f127461e13a592c4e88a157b3493daaf, type: 2}
   m_sharedMaterial: {fileID: -3467376532555808541, guid: f127461e13a592c4e88a157b3493daaf,
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 622199452}
-    characterCount: 6
+    characterCount: 10
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -784,8 +784,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0015202, y: 782}
-  m_SizeDelta: {x: 411.9, y: 96.8}
+  m_AnchoredPosition: {x: 4.789997, y: 774.1}
+  m_SizeDelta: {x: 473.55, y: 112.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &672630205
 MonoBehaviour:
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAMER OVER
+  m_text: FIM DE JOGO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f127461e13a592c4e88a157b3493daaf, type: 2}
   m_sharedMaterial: {fileID: -3467376532555808541, guid: f127461e13a592c4e88a157b3493daaf,
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -875,10 +875,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 672630205}
-    characterCount: 10
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1061,14 +1061,14 @@ RectTransform:
   m_GameObject: {fileID: 865503927}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1123567932}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 219, y: -670}
+  m_AnchoredPosition: {x: 235, y: -670}
   m_SizeDelta: {x: 22.89, y: 41.200012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &865503929
@@ -1160,7 +1160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.3, y: 4}
+  m_AnchoredPosition: {x: 260, y: 4}
   m_SizeDelta: {x: 180.48, y: 96.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047205238
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 830bbaf7317258042866514525e13f5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d75ff01af42368d4583e2e406cec907a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1868,14 +1868,14 @@ RectTransform:
   m_GameObject: {fileID: 1905337292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1123567932}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -203.40004, y: -664.2}
+  m_AnchoredPosition: {x: -219, y: -664.2}
   m_SizeDelta: {x: 22.89, y: 41.200012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1905337294
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 4
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
